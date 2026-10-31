@@ -1,43 +1,73 @@
-# AI Disaster Intelligence & Autonomous Relief Coordinator
+# SENTINEL — Evidence-Grounded AI Disaster Intelligence & Autonomous Emergency Coordination System
 
 > **TCS Hackathon — Theme 3: AI for Impact**  
 > **Challenge 11: AI Disaster Intelligence & Autonomous Relief Coordinator**  
-> **Domain:** Disaster Management  
-> **Tags:** Agentic AI | Optimization | Emergency Response | Responsible AI  
+> **Domain:** Emergency Management • Autonomous Coordination • Responsible AI • Deepfake Defense  
+> **Live Local URL:** [http://localhost:3000](http://localhost:3000) • **API Docs:** [http://localhost:8000/docs](http://localhost:8000/docs)  
+
+---
+
+## 📖 Comprehensive Documentation
+For the complete architectural blueprint, mathematical equations, API schemas, and test reports, see:  
+👉 **[SENTINEL_END_TO_END_SPECIFICATION.md](SENTINEL_END_TO_END_SPECIFICATION.md)**
 
 ---
 
 ## 🎯 Executive Overview
-During large-scale emergencies, information arriving from weather alerts, citizen SOS calls, field responders, shelter records, and road sensors is noisy, delayed, and conflicting. 
 
-This project delivers an **Autonomous Disaster Intelligence & Relief Coordination Command Center** that executes:
+During extreme disaster events, emergency control rooms are overwhelmed by conflicting, delayed, and unverified data. **SENTINEL** is an agentic, evidence-grounded emergency operations command system that executes a continuous operational lifecycle:
+
 $$\mathbf{Verify} \longrightarrow \mathbf{Prioritize} \longrightarrow \mathbf{Allocate} \longrightarrow \mathbf{Route} \longrightarrow \mathbf{Monitor} \longrightarrow \mathbf{Replan}$$
 
-It specifically solves the **Dynamic Jury Challenge** (autonomous mid-mission rerouting and replanning when a critical artery collapses) while enforcing **Responsible AI Guardrails** (human sign-off on life-critical missions).
+The platform integrates **real AI deepfake detection (Lynote AI UnivFD ViT-L-14)** and **C2PA cryptographic provenance verification** to purge digital disinformation from the disaster triage loop, dynamically reroutes convoys when arteries submerge, and enforces **human-in-the-loop sign-off** on critical decisions.
 
 ---
 
-## 📖 Master Architecture & Implementation Plan
-For the complete mathematical formulations, multi-agent architecture, and demonstration protocol, see:
-👉 **[MASTER_PROJECT_PLAN.md](MASTER_PROJECT_PLAN.md)**
+## 🏗️ Key Architecture & Pillars
+
+1. **Modern Command Centre Operations UI:** Light lavender and soft blue command centre interface with a 3-column layout (Prioritized Queue, Leaflet OSM GIS map with real-time road impedance, and AI Reassignment & Operator Authorization).
+2. **Media Authenticity & Forensic Worker:**
+   - **Lynote AI Image Detector:** Real OpenCLIP ViT-L-14 visual manifold feature extractor paired with pre-trained UnivFD linear classification head.
+   - **C2PA Provenance Verification:** Official `c2pa-python` SDK validating X.509 cryptographic assertions and digital camera credentials.
+   - **Honest Health Reporting:** Zero simulated fake scores; honest offline status reporting.
+3. **Multi-Tier Bayesian Evidence Intelligence:** 5-tier source hierarchy weighting official radio ($w=1.00$), hydro sensors ($w=0.88$), 112 calls ($w=0.76$), citizen uploads ($w=0.42$), and social media ($w=0.22$).
+4. **Explainable Prioritization (MCDA):** Multi-Criteria Decision Analysis balancing Casualty Risk (40%), Demographic Vulnerability (30%), and Time Urgency (30%).
+5. **Dynamic Road Network & Replanning Engine:** Real-time road impedance modeling that detects submerged roads and recommends elevated bypass routes with minute-by-minute ETA deltas.
+6. **Responsible AI Guardrails:** Human-in-the-loop coordinator authorization for mission diversions and route overrides.
 
 ---
 
-## 🏗️ Core Pillars
+## 🚀 Quick Startup Guide
 
-1. **Multi-Tier Evidence Verification Engine**: Differentiates official NDRF field reports ($w=1.00$), IoT telemetry ($w=0.88$), 112 helpline calls ($w=0.76$), citizen SOS reports ($w=0.42$), and unverified social rumors ($w=0.22$) with exponential corroboration gains.
-2. **Explainable Prioritization (MCDA)**: Computes composite priority scores balancing Casualty Risk, Demographic Vulnerability, and Urgency, accompanied by human-readable Chain-of-Thought Decision Cards.
-3. **Constrained Resource & Shelter Optimization (MILP)**: Dispatches the nearest capable units (Ambulances, Rescue Boats, NDRF Rescue Teams, Food Convoys) while routing victims to flood-safe shelters and ICU trauma centers.
-4. **Dynamic Road Network & Jury Replanning Engine**: Graph-based routing with real-time impedance updates. Allows judges to cut off roads (e.g. bridge washouts) and watch the AI dynamically reroute convoys and swap units within $< 100\text{ms}$.
-5. **Responsible AI Guardrail**: Enforces human-in-the-loop sign-off for critical life-safety mission diversions.
-
----
-
-## 🚀 Repository Layout
-```text
-/data/tcs hackthon/
-├── MASTER_PROJECT_PLAN.md    # Complete mathematical & architectural blueprint
-├── README.md                 # Project summary and overview
-├── backend/                  # Python FastAPI, PuLP / SciPy, NetworkX
-└── frontend/                 # React 18, Vite, Tailwind CSS, Leaflet GIS Map
+### 1. One-Click Startup (Windows)
+Double-click `start.bat` in the project root:
+```cmd
+start.bat
 ```
+
+### 2. Manual Startup
+**Terminal 1 — Python FastAPI Backend (Port 8000):**
+```bash
+python backend/run.py
+```
+
+**Terminal 2 — React + Vite Frontend (Port 3000):**
+```bash
+npm run dev
+```
+
+Open your browser at **[http://localhost:3000](http://localhost:3000)**.
+
+---
+
+## 🧪 Testing & Verification
+
+- **Frontend Compilation:** `npm run build` (`tsc -b && vite build`) — **0 errors**.
+- **Backend Tests:** 12 automated unit and integration tests passing:
+```bash
+python -c "import sys; sys.path.insert(0, 'backend'); import pytest; sys.exit(pytest.main(['backend/tests/test_media_authenticity.py', '-v']))"
+```
+
+---
+
+*SENTINEL — Autonomous Disaster Intelligence & Emergency Coordination System*
